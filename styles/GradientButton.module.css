@@ -1,0 +1,7 @@
+.button {
+    background: var(--red-gradient);
+    box-shadow: 0px 6px 25px rgba(245, 49, 63, 0.4);
+    border-radius: 20px;
+    padding: 9px 20px;
+    cursor: pointer;
+}

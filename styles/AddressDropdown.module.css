@@ -1,0 +1,36 @@
+.addressDropdown {
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    overflow: hidden;
+    top: 48px;
+    left: 0;
+    right: 0;
+    max-height: 0;
+    z-index: 999;
+    box-shadow: 3.77833px 0px 19.9023px rgba(160, 168, 204, 0.2);
+    border-radius: 0px 0px 18.8916px 18.8916px;
+    transition: max-height 0.5s ease 0s;
+    padding-bottom: 0;
+}
+
+.expand {
+    max-height: 500px;
+    padding-bottom: 27px;
+}
+
+.menuItem {
+    display: flex;
+    align-items: center;
+    padding: 17.5px 0 17.5px 66px;
+    border-bottom: 0.25px solid var(--grey-color);
+}
+
+.addressInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.icon {
+    margin-right: 20px;
+}

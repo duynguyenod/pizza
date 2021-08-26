@@ -1,0 +1,60 @@
+.header1 {
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 29px;
+    letter-spacing: -0.3px;
+}
+
+.header2 {
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 29px;
+    letter-spacing: -0.3px;
+}
+
+.header3 {
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: -0.3px;
+}
+
+.header4 {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: -0.3px;
+}
+
+.preTitle {
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 12px;
+    /* identical to box height */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.bodyText {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.defaultButtonText {
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 18px;
+    /* identical to box height */
+    letter-spacing: -0.3px;
+    text-transform: capitalize;
+}
+
+.selectedButtonText {
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 18px;
+    /* identical to box height */
+    letter-spacing: -0.3px;
+    text-transform: capitalize;
+}

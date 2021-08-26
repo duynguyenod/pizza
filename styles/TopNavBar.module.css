@@ -1,0 +1,28 @@
+.topNavBar {
+    background-color: #ffffff;
+    height: 48px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    padding: 0 20px;
+    border-bottom: 0.25px solid #DADAE5;
+}
+
+.leftTopBar {
+    display: flex;
+    align-self: center;
+}
+
+.menuButton {
+    margin-left: 4px;
+}
+
+.deliverAddress {
+    margin-left: 29px;
+}
+
+.pageTitle {
+    display: flex;
+    align-items: center;
+}

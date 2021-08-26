@@ -1,0 +1,13 @@
+.pizzaBannerContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 21px 20px 0 20px;
+}
+
+.container {
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
