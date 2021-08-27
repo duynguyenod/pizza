@@ -7,11 +7,12 @@ import Card from '../components/Card'
 import GradientButton from '../components/GradientButton'
 import { BodyText, Header1, Header2, Header4, PreTitle, SelectedButtonText } from '../components/Typography'
 import styles from '../styles/Home.module.css'
+import { useEffect } from 'react'
 
 const Home: NextPage = () => {
-  const navigateToChooseSizePage = () => {
-
-  }
+  useEffect(() => {
+    localStorage.clear(); 
+  }, [])
   return (
     <div className={styles.container}>
       <main className={styles.main}>
@@ -39,7 +40,7 @@ const Home: NextPage = () => {
               </div>
             </div>
           </Card>
-          <Link href="/selectPizza" passHref>
+          <Link href="/selectSize" passHref>
             <Card isTransparent={false} style={{cursor: 'pointer'}}>
               <div style={{ display: 'flex', flexDirection: "column", justifyContent: 'flex-start', alignItems: 'center', paddingTop: '31px' }}>
                 <div>

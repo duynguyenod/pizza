@@ -1,6 +1,6 @@
 import { CSSProperties } from "react"
 import styles from '../styles/ToppingsSlider.module.css'
-import { Header3, Header4, BodyText } from './Typography';
+import { Header3, Header4, BodyText, PreTitle } from './Typography';
 import Card from './Card'
 import Image from 'next/image'
 import { PizzaTopping, Topping } from "../types";
@@ -16,8 +16,9 @@ type ToppingsSliderProps = {
 export default function ToppingsSlider({ toppings, style, onChange }: ToppingsSliderProps) {
     return <Card isTransparent={false} style={style}>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-            <div style={{ marginBottom: '30px' }}>
-                <Header3 text="Choose your" color='var(--purple-color)' /> <Header4 text="size" color='var(--purple-color)' />
+            <div style={{ marginBottom: '30px', textAlign: "center" }}>
+                <Header3 text="Choose up to" color='var(--purple-color)' /> <Header4 text="7 toppings" color='var(--purple-color)' /><br/>
+                <PreTitle text="Free 3 add-ons"/>
             </div>
             <div className={styles.toppingCardList} style={{ display: 'flex', overflow: 'auto', justifyContent: 'space-between', alignItems: 'center', maxWidth: '100%' }}>
                 {toppings && toppings.map(({ name, price, icon, isSelected }) => <ToppingCard key={name} name={name} icon={icon} isSelected={isSelected} price={price} onToggleSelection={onChange} />)}

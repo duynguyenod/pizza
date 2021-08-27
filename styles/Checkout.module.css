@@ -1,0 +1,23 @@
+.addressInfo {
+    display: flex;
+    flex-direction: column;
+    padding-left: 24px;
+    padding-bottom: 16px;
+    border-bottom: 0.5px solid var(--grey-color);
+}
+
+.container {
+    background-color: var(--light-grey-color);
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner {
+    padding-top: 23px;
+    padding-left: 23px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

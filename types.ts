@@ -4,8 +4,8 @@ export type AddressType = {
     address: string;
 }
 
-export type PizzaSize = "Small" | "Medium" | "Large" | undefined;
-export type PizzaCrust = "Thin" | "Thick" | undefined;
+export type PizzaSize = "Small" | "Medium" | "Large";
+export type PizzaCrust = "Thin" | "Thick";
 export type PizzaTopping = "Pepperoni" | "Mushroom" | "Black Olives" | "Onions" | "Bacon" | "Cheese" | "Peppers" | "Pineapple" | "Sausages" | "Spinach";
 export type Topping = {
     name: PizzaTopping;

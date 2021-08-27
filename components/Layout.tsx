@@ -27,11 +27,28 @@ export default function Layout({ children }: LayoutProps) {
         <meta id="viewport" name="viewport" content="width=375, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <TopNavBar toggleAddressDropdown={() => setshowAddressDropdown(true)} onMenuButtonClick={() => setShowSideBar(true)} onCartButtonClick={() => {}} atHome={atHome} />
+      <TopNavBar
+        toggleAddressDropdown={() => setshowAddressDropdown(true)}
+        onMenuButtonClick={() => setShowSideBar(true)}
+        onCartButtonClick={() => { }}
+        atHome={atHome}
+        onBackButtonClick={() => {
+          switch (router.pathname) {
+            case '/selectSize':
+              router.push('/');
+              return;
+            case '/selectCrust':
+              router.push('/selectSize');
+              return;
+            case '/selectToppings':
+              router.push('/selectCrust');
+              return;
+          }
+        }} />
       <SideBar show={showSideBar} />
-      <AddressDropdown show={showAddressDropdown}/>
+      <AddressDropdown show={showAddressDropdown} />
       <main style={{ height: 'calc(100% - 48px)', backgroundColor: 'var(--light-grey-color)' }}>
-        {(showSideBar || showAddressDropdown) && <div onClick={() => {setShowSideBar(false); setshowAddressDropdown(false)}} className={styles.blurBackground}>
+        {(showSideBar || showAddressDropdown) && <div onClick={() => { setShowSideBar(false); setshowAddressDropdown(false) }} className={styles.blurBackground}>
 
         </div>}
         {children}
