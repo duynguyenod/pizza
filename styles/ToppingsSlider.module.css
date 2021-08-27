@@ -1,0 +1,10 @@
+.toppingCardList {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.toppingCardList::-webkit-scrollbar {
+    display: none;
+}

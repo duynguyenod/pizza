@@ -7,3 +7,9 @@ export type AddressType = {
 export type PizzaSize = "Small" | "Medium" | "Large" | undefined;
 export type PizzaCrust = "Thin" | "Thick" | undefined;
 export type PizzaTopping = "Pepperoni" | "Mushroom" | "Black Olives" | "Onions" | "Bacon" | "Cheese" | "Peppers" | "Pineapple" | "Sausages" | "Spinach";
+export type Topping = {
+    name: PizzaTopping;
+    price: number;
+    icon: string;
+    isSelected: boolean;
+  }
