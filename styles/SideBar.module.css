@@ -10,11 +10,13 @@
     box-shadow: 3.77833px 0px 19.9023px rgba(160, 168, 204, 0.2);
     border-radius: 0px 18.8916px 18.8916px 0px;
     transition: all 0.5s ease 0s;
+    visibility: hidden;
 }
 
 .expand {
     left: 0;
     width: 240px;
+    visibility: visible;
 }
 
 .userInfoMenu {
