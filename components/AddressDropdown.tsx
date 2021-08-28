@@ -1,5 +1,5 @@
 import styles from '../styles/AddressDropdown.module.css'
-import { BodyText, Header4, } from './Typography'
+import { BodyText, } from './Typography'
 import Image from 'next/image'
 import { AddressType } from '../types'
 import { useState } from 'react'
