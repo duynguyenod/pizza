@@ -21,3 +21,11 @@
     flex-direction: column;
     align-items: flex-start;
 }
+
+.visaInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-left: 24px;
+    padding-right: 15px
+}

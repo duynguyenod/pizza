@@ -43,6 +43,15 @@ export default function Layout({ children }: LayoutProps) {
             case '/selectToppings':
               router.push('/selectCrust');
               return;
+            case '/verify':
+              router.push('/selectToppings');
+              return;
+            case '/checkout':
+              router.push('/verify');
+              return;
+            case '/details':
+              router.push('/');
+              return;
           }
         }} />
       <SideBar show={showSideBar} />

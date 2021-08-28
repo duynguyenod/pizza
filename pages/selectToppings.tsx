@@ -12,69 +12,7 @@ import Pizza from '../components/Pizza'
 import { useEffect } from 'react'
 import router from 'next/router'
 import { getCrustPrice, getSizePrice } from '../utils'
-
-const defaultToppings =[
-  {
-    name: "Pepperoni",
-    price: 0.00,
-    icon: "/assets/toppings/pepperoni.png",
-    isSelected: false
-  },
-  {
-    name: "Mushroom",
-    price: 0.00,
-    icon: "/assets/toppings/mushroom.png",
-    isSelected: false
-  },
-  {
-    name: "Black Olives",
-    price: 0.00,
-    icon: "/assets/toppings/olives.png",
-    isSelected: false
-  },
-  {
-    name: "Onions",
-    price: 0.00,
-    icon: "/assets/toppings/onion.png",
-    isSelected: false
-  },
-  {
-    name: "Peppers",
-    price: 0.00,
-    icon: "/assets/toppings/peppers.png",
-    isSelected: false
-  },
-  {
-    name: "Pineapple",
-    price: 0.00,
-    icon: "/assets/toppings/pineapple.png",
-    isSelected: false
-  },
-  {
-    name: "Sausages",
-    price: 0.00,
-    icon: "/assets/toppings/sausages.png",
-    isSelected: false
-  },
-  {
-    name: "Spinach",
-    price: 0.00,
-    icon: "/assets/toppings/spinach.png",
-    isSelected: false
-  },
-  {
-    name: "Bacon",
-    price: 0.00,
-    icon: "/assets/toppings/bacon.png",
-    isSelected: false
-  },
-  {
-    name: "Cheese",
-    price: 0.00,
-    icon: "/assets/toppings/cheese.png",
-    isSelected: false
-  },
-];
+import { defaultToppings, gradientButtonStyle } from '../constants'
 
 const SelectToppings: NextPage = () => {
   const [size, setSize] = useState<PizzaSize>("Small");
@@ -84,7 +22,10 @@ const SelectToppings: NextPage = () => {
     setSize(localStorage.getItem('size') as PizzaSize);
     setCrust((localStorage.getItem('crust') || "Thin") as PizzaCrust);
     const savedToppings = localStorage.getItem('toppings');
-    const fetchToppings = (savedToppings && savedToppings!== '[]') ? JSON.parse(savedToppings) : defaultToppings
+    const fetchToppings =
+      (savedToppings && savedToppings !== '[]')
+        ? JSON.parse(savedToppings)
+        : defaultToppings
     setToppings(fetchToppings);
   }, [])
 
@@ -94,8 +35,8 @@ const SelectToppings: NextPage = () => {
 
   useEffect(() => {
     let calculatedPrice = getSizePrice(size);
-    calculatedPrice+= getCrustPrice(crust);
-    const selectedToppings = toppings.filter(({isSelected}) => isSelected);
+    calculatedPrice += getCrustPrice(crust);
+    const selectedToppings = toppings.filter(({ isSelected }) => isSelected);
     const additionalPriceforToppings = selectedToppings.length > 3 ? (selectedToppings.length - 3) * 0.5 : 0;
     calculatedPrice += additionalPriceforToppings;
     setConfirmToppings(selectedToppings);
@@ -107,7 +48,7 @@ const SelectToppings: NextPage = () => {
 
 
   const goToNextStep = () => {
-    localStorage.setItem('toppings', JSON.stringify(confirmedToppings));
+    localStorage.setItem('toppings', JSON.stringify(toppings));
     router.push('/verify');
   }
 
@@ -116,49 +57,38 @@ const SelectToppings: NextPage = () => {
     const toppingIndex = _toppings.findIndex((topping) => topping.name === name);
     _toppings[toppingIndex] = { ..._toppings[toppingIndex], isSelected };
 
-    const selectedToppings = _toppings.filter(({isSelected}) => isSelected);
+    const selectedToppings = _toppings.filter(({ isSelected }) => isSelected);
 
-    if(isSelected && selectedToppings.length === 3) {
+    if (isSelected) {
       const priceUpdatedToppings = _toppings.map((topping) => {
-        if(topping.isSelected) return topping;
         return {
           ...topping,
-          price: 0.5
+          ...(selectedToppings.length === 3 && {price: 0.5}),
+          ...(selectedToppings.length === 7 && {isEnabled: topping.isSelected}),
         }
       });
       setToppings(priceUpdatedToppings);
       return;
-    }
-
-    if(!isSelected) {
-      if(selectedToppings.length < 3) {
+    }else {
+      if (selectedToppings.length < 7) {
         const priceUpdatedToppings = _toppings.map((topping) => ({
           ...topping,
-          price: 0
-        }));
-        setToppings(priceUpdatedToppings);
-        return;
-      }
-
-      if(selectedToppings.length === 3) {
-        const priceUpdatedToppings = _toppings.map((topping) => ({
-          
-            ...topping,
+          isEnabled: true,
+          ...(selectedToppings.length < 3 && {price: 0}),
+          ...(selectedToppings.length === 3 && {
             price: topping.isSelected ? 0 : 0.5
-          
+          })
         }));
         setToppings(priceUpdatedToppings);
         return;
       }
-      
     }
-
     setToppings(_toppings);
   }
 
   return (
     <div className={styles.container} ref={containerRef}>
-      <div style={{ position: 'relative', zIndex: 2 }}>
+      <div className={styles.banner}>
         <GradientBackground height={280}>
           <div className={styles.pizzaBannerContainer}>
             <div>
@@ -166,7 +96,7 @@ const SelectToppings: NextPage = () => {
               <div style={{ maxWidth: '300px' }}>
                 <PreTitle text={size} color='white' />
                 <PreTitle text={`, ${crust}`} color='white' />
-                {confirmedToppings && confirmedToppings.length > 0 ? confirmedToppings.map((topping) => <PreTitle key={confirmedToppings.indexOf(topping)} text={`, ${topping.name}`} color='white' style={{letterSpacing: '0'}} />) : <PreTitle text=", toppings" color='rgba(255, 255, 255, 0.3)' />}
+                {confirmedToppings && confirmedToppings.length > 0 ? confirmedToppings.map((topping) => <PreTitle key={confirmedToppings.indexOf(topping)} text={`, ${topping.name}`} color='white' style={{ letterSpacing: '0' }} />) : <PreTitle text=", toppings" color='var(--unseleted-pizza-text-color)' />}
               </div>
             </div>
             <Header1 text={`$${price.toFixed(2)}`} />
@@ -177,7 +107,7 @@ const SelectToppings: NextPage = () => {
       <Pizza size={size} crust={crust} toppings={confirmedToppings} />
       <div>
         <ToppingsSlider toppings={toppings} style={{ paddingTop: '25px', margin: '21px 20px 39px 20px' }} onChange={onToppingChanged} />
-        <GradientButton onClick={goToNextStep} style={{ borderRadius: '0', height: '60px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><SelectedButtonText text="Next" /></GradientButton>
+        <GradientButton onClick={goToNextStep} style={gradientButtonStyle}><SelectedButtonText text="Next" /></GradientButton>
       </div>
     </div>
   )

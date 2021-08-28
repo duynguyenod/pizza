@@ -4,6 +4,11 @@
     padding: 21px 20px 0 20px;
 }
 
+.banner {
+    position: relative;
+    z-index: 2;
+}
+
 .container {
     height: 100%;
     position: relative;

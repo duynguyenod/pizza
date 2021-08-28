@@ -12,7 +12,7 @@ export function getSizePrice(size: PizzaSize) {
 }
 
 export function getCrustPrice(crust: PizzaCrust) {
-    if(crust = "Thick") {
+    if(crust === "Thick") {
         return 4;
     }
     return 0;

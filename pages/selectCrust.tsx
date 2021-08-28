@@ -13,6 +13,7 @@ import Pizza from '../components/Pizza'
 import HalfOuterCircle from '../components/HalfOuterCircle'
 import { useEffect } from 'react'
 import { getCrustPrice, getSizePrice } from '../utils'
+import { gradientButtonStyle } from '../constants'
 
 const pizzaCrustOptions = ["Thin", "Thick"];
 
@@ -44,15 +45,15 @@ const SelectCrust: NextPage = () => {
 
   return (
     <div className={styles.container} ref={containerRef}>
-      <div style={{ position: 'relative', zIndex: 2 }}>
+      <div className={styles.banner}>
         <GradientBackground height={280}>
           <div className={styles.pizzaBannerContainer}>
             <div>
               <Header1 text="Create Your Pizza" color='white' />
               <div>
                 <PreTitle text={size} color='white' />
-                <PreTitle text=", crust" color='rgba(255, 255, 255, 0.3)' />
-                <PreTitle text=", toppings" color='rgba(255, 255, 255, 0.3)' />
+                <PreTitle text=", crust" color='var(--unseleted-pizza-text-color)' />
+                <PreTitle text=", toppings" color='var(--unseleted-pizza-text-color)' />
               </div>
             </div>
             {price && <Header1 text={`$${price.toFixed(2)}`} />}
@@ -64,7 +65,7 @@ const SelectCrust: NextPage = () => {
       <HalfOuterCircle size={size} containerRef={containerRef} />
       <div>
         <OptionSelect type="crust" style={{ marginBottom: '38px' }} onChange={(index) => setCrust(pizzaCrustOptions[index] as PizzaCrust)} options={pizzaCrustOptions} selectedItem={crust}/>
-        <GradientButton onClick={goToNextStep} style={{ borderRadius: '0', height: '60px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><SelectedButtonText text="Next" /></GradientButton>
+        <GradientButton onClick={goToNextStep} style={gradientButtonStyle}><SelectedButtonText text="Next" /></GradientButton>
       </div>
     </div>
   )

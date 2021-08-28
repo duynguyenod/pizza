@@ -12,9 +12,34 @@
     padding-top: 16px;
 }
 
+.bannerTextContainer {
+    border-left: 1px solid white;
+    padding-left: 11px;
+}
+
+.createOwnPizzaCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 31px;
+}
+
 .createOwnPizzaImage {
     height: 312px;
     margin-top: -30px !important;
     margin-right: -30px !important;
     margin-left: -30px !important;
+}
+
+.reorderCard {
+    display: flex;
+    align-items: center;
+    height: 218px
+}
+
+.reorderRightColumn {
+    display: flex;
+    flex-direction: column;
+    margin-left: -32px;
+    align-items: flex-start;
 }

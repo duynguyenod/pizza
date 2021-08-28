@@ -15,21 +15,24 @@ const Home: NextPage = () => {
   }, [])
   return (
     <div className={styles.container}>
-      <main className={styles.main}>
+      <div className={styles.main}>
         <GradientBackground height={144}>
           <div className={styles.homeBannerContainer}>
             <BodyText text="Hi Javkey!" color='white' />
-            <div style={{ borderLeft: '1px solid white', paddingLeft: '11px' }}>
-              <Header1 text="What" color='white' /> <Header2 text='pizza' color='white' /> <Header1 text="do you" color='white' /> <br />
+            <div className={styles.bannerTextContainer}>
+              <Header1 text="What" color='white' />
+              <Header2 text='pizza' color='white' />
+              <Header1 text="do you" color='white' />
+              <br />
               <Header1 text="want to try today?" color='white' />
             </div>
           </div>
         </GradientBackground>
         <div className='contentContainer'>
           <Card isTransparent style={{ marginTop: '-28px', zIndex: 2, marginBottom: '18px' }}>
-            <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', height: '218px' }}>
+            <div className={styles.reorderCard}>
               <Image src="/assets/thinCrust_w_ toppings.png" width="190px" height="218px" alt="Reorder pizza" />
-              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', marginLeft: '-32px' }}>
+              <div className={styles.reorderRightColumn}>
                 <Header4 text="Reorder again?" color='var(--red-color)' style={{ marginBottom: '3px' }} />
                 <PreTitle text="SMALL, THIN CRUST," />
                 <PreTitle text="TOMATOES, BASIL, CHEESE" style={{ marginBottom: '7px' }} />
@@ -42,7 +45,7 @@ const Home: NextPage = () => {
           </Card>
           <Link href="/selectSize" passHref>
             <Card isTransparent={false} style={{cursor: 'pointer'}}>
-              <div style={{ display: 'flex', flexDirection: "column", justifyContent: 'flex-start', alignItems: 'center', paddingTop: '31px' }}>
+              <div className={styles.createOwnPizzaCard}>
                 <div>
                   <Header1 text="Create your" color='var(--red-color)' /> <Header2 text="own pizza" color='var(--red-color)' /> <br />
                 </div>
@@ -55,7 +58,7 @@ const Home: NextPage = () => {
           </Link>
 
         </div>
-      </main>
+      </div>
     </div>
   )
 }

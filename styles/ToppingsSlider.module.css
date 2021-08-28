@@ -1,10 +1,36 @@
 .toppingCardList {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
     -ms-overflow-style: none;
-    /* IE and Edge */
     scrollbar-width: none;
-    /* Firefox */
+    -webkit-overflow-scrolling: touch;
 }
 
 .toppingCardList::-webkit-scrollbar {
     display: none;
+}
+
+@media screen and (max-width: 400px) {}
+
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cardHeader {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.toppingCardContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }

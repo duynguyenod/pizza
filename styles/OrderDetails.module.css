@@ -1,0 +1,147 @@
+.container {
+    background-color: var(--light-grey-color);
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner {
+    padding-top: 23px;
+    padding-left: 23px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.orderDetailsContainer {
+    padding-top: 38px;
+    padding-bottom: 20px;
+}
+
+.basicInfoContainer {
+    padding: 0 25px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.5px solid var(--light-purple-color);
+}
+
+.orderInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.orderStateContainer {
+    padding-top: 49px;
+    padding-left: 38px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.finishedStateIcon {
+    border-radius: 50%;
+    width: 31px;
+    height: 31px;
+    padding: 6px;
+    background: linear-gradient(107.9deg, rgba(245, 49, 63, 0.5) 1.55%, rgba(255, 163, 96, 0.5) 94.08%), #F4F3F9;
+    border: 0.780134px solid #F5313F;
+    box-shadow: 0px 6px 25px rgba(245, 49, 63, 0.4);
+    box-sizing: border-box;
+    margin-right: 46px;
+}
+
+.unfinishedStateIcon {
+    background-color: var(--light-grey-color);
+    border: 0.780134px solid var(--grey-color);
+    box-shadow: inset 0px 1.56027px 6.24108px rgba(160, 168, 204, 0.4);
+    border-radius: 50%;
+    width: 31px;
+    height: 31px;
+    padding: 6px;
+    margin-right: 46px;
+}
+
+.stateItem {
+    margin-bottom: 33px;
+    display: flex;
+    align-items: center;
+}
+
+.finishedLine,
+.unfinishedLine {
+    position: absolute;
+}
+
+.finishedLine {
+    border: 1px solid #F5313F;
+    height: 70px;
+    left: 53px;
+    z-index: -1;
+    top: 75px;
+}
+
+.unfinishedLine {
+    border: 0.456581px solid var(--grey-color);
+    height: 261px;
+    left: 53px;
+    z-index: -2;
+    top: 75px;
+}
+
+.cashbackContainer {
+    background: rgba(222, 243, 225, 0.5);
+    border: 0.5px solid var(--green-color);
+    box-sizing: border-box;
+    box-shadow: 0px 4px 15px rgba(218, 218, 229, 0.2);
+    border-radius: 20px;
+    height: 81px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-left: 26px;
+}
+
+.cashbackInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cashbackIcon {
+    background: #DEF3E1;
+    border: 1px solid var(--green-color);
+    box-sizing: border-box;
+    box-shadow: 0px 6px 25px rgba(87, 193, 104, 0.3);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cashbackValue {
+    display: flex;
+    flex-direction: column;
+    margin-left: 14px;
+}
+
+.rightCashback {
+    width: 56px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 0.5px solid var(--green-color);
+    background: rgba(87, 193, 104, 0.2);
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+}

@@ -65,7 +65,7 @@ const PizzaVerify: NextPage = () => {
                 <BodyText text={`${crust} Crust`} />
                 <BodyText text={`$${getCrustPrice(crust).toFixed(2)}`} style={{ fontSize: '10px' }} />
               </div>}
-              {toppings && toppings.map(({ name, price }) => (<div key={name} className={styles.priceRow}>
+              {toppings && toppings.filter(({isSelected}) => isSelected).map(({ name, price }) => (<div key={name} className={styles.priceRow}>
                 <BodyText text={name} />
                 <BodyText text={`$${price.toFixed(2)}`} style={{ fontSize: '10px' }} />
               </div>))}

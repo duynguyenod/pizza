@@ -12,4 +12,5 @@ export type Topping = {
     price: number;
     icon: string;
     isSelected: boolean;
+    isEnabled: boolean;
   }
